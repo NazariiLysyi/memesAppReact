@@ -11,7 +11,10 @@ import image9 from '../../assets/img/meme9.jpg';
 import image10 from '../../assets/img/meme10.jpg';
 import image11 from '../../assets/img/meme11.jpg';
 import image12 from '../../assets/img/meme12.jpg';
-// import { makeStyles } from '@material-ui/core/styles';
+// import image13 from '../../assets/img/Meme17.jpg';
+import image14 from '../../assets/img/meme14.jpg';
+import image15 from '../../assets/img/meme15.jpg';
+import image16 from '../../assets/img/meme16.jpg';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
@@ -32,13 +35,12 @@ const useStyles = theme => ({
 	},
 	gridList: {
 	  width: 1200,
-	  height: 'auto',
+    height: 'auto',
 	},
 	icon: {
 	  color: 'rgba(255, 255, 255, 0.54)',
 	  border: 'none'
-	},
-
+  },
   });
 
 export const arrMems = [
@@ -125,6 +127,34 @@ export const arrMems = [
     downvotes: 0,
     img: image12, 
   },
+
+  // {
+  //   title: "Meme13",
+  //   upvotes: 0,
+  //   downvotes: 0,
+  //   img: image13, 
+  // },
+
+  {
+    title: "Meme14",
+    upvotes: 0,
+    downvotes: 0,
+    img: image14, 
+  },
+
+  {
+    title: "Meme15",
+    upvotes: 0,
+    downvotes: 0,
+    img: image15, 
+  },
+
+  {
+    title: "Meme16",
+    upvotes: 0,
+    downvotes: 0,
+    img: image16, 
+  },
 ]
 
 class Regular extends Component {
@@ -166,7 +196,7 @@ class Regular extends Component {
 
 		<div className={classes.root}>
  			<GridList cellHeight={280} className={classes.gridList}>
-  	       		<GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
+  	       		<GridListTile key="Subheader" cols={2} style={{ height: 100 }}>
   	         		<ListSubheader component="div"><h1>List Regular memes</h1></ListSubheader>
   	       	</GridListTile>
 					{this.props.items.map((item, i) => ( <GridListTile key={item.title} >

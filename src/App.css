@@ -2,9 +2,15 @@
   text-align: center;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 375px) {
   li {
     flex: 60%;
+  }
+}
+
+@media (max-width: 994px) and (min-width: 400px) {
+  li {
+    flex: 50%;
   }
 }
 
