@@ -9,6 +9,7 @@ import {BrowserRouter, Switch, Route, Redirect} from 'react-router-dom';
 import Link from "@material-ui/core/Link";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
+import {arrMems} from '../src/Components/Regular/Regular';
 
 function Copyright() {
   return (
@@ -44,7 +45,7 @@ function App() {
               <Redirect to='/regular'/>
             </Route>
           <Route path='/regular'>
-            <Regular />
+            <Regular items = {arrMems}  />
           </Route>
           <Route path='/hot'>
             <Hot />

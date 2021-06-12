@@ -11,7 +11,7 @@ import image9 from '../../assets/img/meme9.jpg';
 import image10 from '../../assets/img/meme10.jpg';
 import image11 from '../../assets/img/meme11.jpg';
 import image12 from '../../assets/img/meme12.jpg';
-import { makeStyles } from '@material-ui/core/styles';
+// import { makeStyles } from '@material-ui/core/styles';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
@@ -20,95 +20,114 @@ import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
 import ThumbDownIcon from '@material-ui/icons/ThumbDown';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Button from '@material-ui/core/Button';
+import { withStyles } from "@material-ui/core/styles";
 
+const useStyles = theme => ({
+	root: {
+	  display: 'flex',
+	  flexWrap: 'wrap',
+	  justifyContent: 'space-around',
+	  overflow: 'hidden',
+	  backgroundColor: theme.palette.background.paper,
+	},
+	gridList: {
+	  width: 1200,
+	  height: 'auto',
+	},
+	icon: {
+	  color: 'rgba(255, 255, 255, 0.54)',
+	  border: 'none'
+	},
+
+  });
 
 export const arrMems = [
     {
-    title: "Mem1",
+    title: "Meme1",
     upvotes: 0,
     downvotes: 0,
     img: image1, 
   },
 
   {
-    title: "Mem2",
+    title: "Meme2",
     upvotes: 0,
     downvotes: 0,
     img: image2, 
   },
 
   {
-    title: "Mem3",
+    title: "Meme3",
     upvotes: 0,
     downvotes: 0,
     img: image3, 
   },
 
   {
-    title: "Mem4",
+    title: "Meme4",
     upvotes: 0,
     downvotes: 0,
     img: image4, 
   },
 
   {
-    title: "Mem5",
+    title: "Meme5",
     upvotes: 0,
     downvotes: 0,
     img: image5, 
   },
 
   {
-    title: "Mem6",
+    title: "Meme6",
     upvotes: 0,
     downvotes: 0,
     img: image6,
   },
 
   {
-    title: "Mem7",
+    title: "Meme7",
     upvotes: 0,
     downvotes: 0,
     img: image7, 
   },
 
   {
-    title: "Mem8",
+    title: "Meme8",
     upvotes: 0,
     downvotes: 0,
     img: image8, 
   },
 
   {
-    title: "Mem9",
+    title: "Meme9",
     upvotes: 0,
     downvotes: 0,
     img: image9, 
   },
 
   {
-    title: "Mem9",
+    title: "Meme10",
     upvotes: 0,
     downvotes: 0,
     img: image10, 
   },
 
   {
-    title: "Mem9",
+    title: "Meme11",
     upvotes: 0,
     downvotes: 0,
     img: image11, 
   },
 
   {
-    title: "Mem9",
+    title: "Meme12",
     upvotes: 0,
     downvotes: 0,
     img: image12, 
   },
 ]
 
-export default class Regular extends Component {
+class Regular extends Component {
 	constructor (props) {
         super(props);
 		this.items = this.props.items;
@@ -116,24 +135,6 @@ export default class Regular extends Component {
             items: []
         };
 
-		this.classes = makeStyles((theme) => ({
-			root: {
-			  display: 'flex',
-			  flexWrap: 'wrap',
-			  justifyContent: 'space-around',
-			  overflow: 'hidden',
-			  backgroundColor: theme.palette.background.paper,
-			},
-			gridList: {
-			  width: 600,
-			  height: 'auto',
-			},
-			icon: {
-			  color: 'rgba(255, 255, 255, 0.54)',
-			  border: 'none'
-			},
-		
-          }));
 	}
 
 	componentDidMount() {
@@ -158,10 +159,13 @@ export default class Regular extends Component {
 		}
 		
 	render() {
+
+    const { classes } = this.props;
+
 	return (
 
-		<div className={this.classes.root}>
- 			<GridList cellHeight={380} className={this.classes.gridList}>
+		<div className={classes.root}>
+ 			<GridList cellHeight={280} className={classes.gridList}>
   	       		<GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
   	         		<ListSubheader component="div"><h1>List Regular memes</h1></ListSubheader>
   	       	</GridListTile>
@@ -171,13 +175,13 @@ export default class Regular extends Component {
               title={item.title}
               actionIcon={
 				<ButtonGroup>
-                <Button onClick={() => {this.changeCounterValue(i, 'thumbup')}} className={this.classes.icon}>
+                <Button onClick={() => {this.changeCounterValue(i, 'thumbup')}} className={classes.icon}>
                     <ThumbUpAltIcon />
                 </Button>
 				<div className="span">
 			  		<span >{item.upvotes}</span>
 				</div>
-                <Button onClick={() => {this.changeCounterValue(i, 'thumbdown')}} className={this.classes.icon}>
+                <Button onClick={() => {this.changeCounterValue(i, 'thumbdown')}} className={classes.icon}>
                     <ThumbDownIcon />
                 </Button>
 				<div className="span">
@@ -194,3 +198,5 @@ export default class Regular extends Component {
 }
   
 }
+
+export default withStyles(useStyles)(Regular)
