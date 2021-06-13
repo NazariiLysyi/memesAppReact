@@ -10,7 +10,7 @@
 
 @media (max-width: 994px) and (min-width: 400px) {
   li {
-    flex: 50%;
+    flex: 65%;
   }
 }
 

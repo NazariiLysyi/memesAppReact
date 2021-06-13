@@ -19,7 +19,7 @@ function Copyright() {
         WSB. Nazar Lysyi
       </Link>{" "}
       {new Date().getFullYear()}
-      {"."}
+        {"."}
     </Typography>
   );
 }
@@ -38,39 +38,39 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Nav />
+          <Nav />
           <div className='Routes'>
-          <Switch>
-            <Route exact path='/'>
-              <Redirect to='/regular'/>
-            </Route>
-          <Route path='/regular'>
-            <Regular items = {arrMems}  />
-          </Route>
-          <Route path='/hot'>
-            <Hot />
-          </Route>
-          <Route path='/upload'>
-            <Upload />
-          </Route>
-            <Route path='*'>
-              <Page404 />
-          </Route>
-          </Switch>
-        </div>
-      </BrowserRouter>
-       {/* Footer */}
-       <footer className={classes.footer}>
-        <Typography
-          variant="subtitle1"
-          align="center"
-          color="textSecondary"
-          component="p"
-        >
-          React Projekt Zaliczeniowy
-        </Typography>
-        <Copyright />
-      </footer>
+            <Switch>
+              <Route exact path='/'>
+                <Redirect to='/regular'/>
+              </Route>
+              <Route path='/regular'>
+                <Regular items = {arrMems}  />
+              </Route>
+              <Route path='/hot'>
+                <Hot />
+              </Route>
+              <Route path='/upload'>
+                <Upload />
+              </Route>
+              <Route path='*'>
+                <Page404 />
+              </Route>
+            </Switch>
+          </div>
+        </BrowserRouter>
+        {/* Footer */}
+        <footer className={classes.footer}>
+          <Typography
+            variant="subtitle1"
+            align="center"
+            color="textSecondary"
+            component="p"
+            >
+            React Projekt Zaliczeniowy
+          </Typography>
+            <Copyright />
+        </footer>
       {/* End footer */}
     </div>
   );

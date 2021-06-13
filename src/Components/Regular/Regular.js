@@ -11,7 +11,7 @@ import image9 from '../../assets/img/meme9.jpg';
 import image10 from '../../assets/img/meme10.jpg';
 import image11 from '../../assets/img/meme11.jpg';
 import image12 from '../../assets/img/meme12.jpg';
-// import image13 from '../../assets/img/Meme17.jpg';
+import image13 from '../../assets/img/meme13.jpg';
 import image14 from '../../assets/img/meme14.jpg';
 import image15 from '../../assets/img/meme15.jpg';
 import image16 from '../../assets/img/meme16.jpg';
@@ -44,7 +44,7 @@ const useStyles = theme => ({
   });
 
 export const arrMems = [
-    {
+  {
     title: "Meme1",
     upvotes: 0,
     downvotes: 0,
@@ -128,12 +128,12 @@ export const arrMems = [
     img: image12, 
   },
 
-  // {
-  //   title: "Meme13",
-  //   upvotes: 0,
-  //   downvotes: 0,
-  //   img: image13, 
-  // },
+  {
+    title: "Meme13",
+    upvotes: 0,
+    downvotes: 0,
+    img: image13, 
+  },
 
   {
     title: "Meme14",
@@ -159,11 +159,11 @@ export const arrMems = [
 
 class Regular extends Component {
 	constructor (props) {
-        super(props);
+    super(props);
 		this.items = this.props.items;
-        this.state = {
-            items: []
-        };
+      this.state = {
+        items: []
+      };
 
 	}
 
@@ -173,10 +173,7 @@ class Regular extends Component {
 
 	useEffect () {};
     
-
 	changeCounterValue = (i, type) => { 
-
-		console.log (i)
 
 		if (type === 'thumbup') {
 			this.items[i].upvotes += 1;
@@ -184,9 +181,10 @@ class Regular extends Component {
 		} else if (type === 'thumbdown') {
 			this.items[i].downvotes += 1;}
 
-		let prevItems = this.items;
+    let prevItems = this.items;
+    
 		this.setState({items: prevItems})
-		}
+	}
 		
 	render() {
 
@@ -196,37 +194,36 @@ class Regular extends Component {
 
 		<div className={classes.root}>
  			<GridList cellHeight={280} className={classes.gridList}>
-  	       		<GridListTile key="Subheader" cols={2} style={{ height: 100 }}>
-  	         		<ListSubheader component="div"><h1>List Regular memes</h1></ListSubheader>
-  	       	</GridListTile>
-					{this.props.items.map((item, i) => ( <GridListTile key={item.title} >
+  	    <GridListTile key="Subheader" cols={2} style={{ height: 100 }}>
+  	      <ListSubheader component="div"><h1>List Regular memes</h1></ListSubheader>
+  	    </GridListTile>
+				{this.props.items.map((item, i) => ( <GridListTile key={item.title} >
 					<img src={item.img} alt={item.title} />
-             <GridListTileBar
-              title={item.title}
-              actionIcon={
-				<ButtonGroup>
-                <Button onClick={() => {this.changeCounterValue(i, 'thumbup')}} className={classes.icon}>
-                    <ThumbUpAltIcon />
-                </Button>
-				<div className="span">
-			  		<span >{item.upvotes}</span>
-				</div>
-                <Button onClick={() => {this.changeCounterValue(i, 'thumbdown')}} className={classes.icon}>
-                    <ThumbDownIcon />
-                </Button>
-				<div className="span">
-					<span>{item.downvotes}</span>
-				</div>
+            <GridListTileBar
+             title={item.title}
+             actionIcon={
+            <ButtonGroup>
+              <Button onClick={() => {this.changeCounterValue(i, 'thumbup')}} className={classes.icon}>
+                <ThumbUpAltIcon />
+              </Button>
+              <div className="span">
+                <span >{item.upvotes}</span>
+              </div>
+              <Button onClick={() => {this.changeCounterValue(i, 'thumbdown')}} className={classes.icon}>
+                <ThumbDownIcon />
+              </Button>
+              <div className="span">
+                <span>{item.downvotes}</span>
+              </div>
             </ButtonGroup>	
-			  }
-            />
+			    }
+          />
           </GridListTile>
         ))}
       </GridList>
     </div>
   );
 }
-  
 }
 
 export default withStyles(useStyles)(Regular)
